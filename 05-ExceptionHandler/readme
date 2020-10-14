@@ -1,0 +1,16 @@
+
+异常处理步骤：
+1. 创建异常类（继承于Exception），并抛出
+2. 新建一个普通类，作为全局异常处理类，加上@ControllerAdvice注解
+3. 在类中定义方法，方法的上面加入@ExceptionHandler
+4. 创建处理异常的视图页面
+5. 创建配置文件
+    组件扫描器，扫描@controller跟@ControllerAdvice所在的包名
+    声明注解驱动
+
+拦截器实现步骤：
+1. 创建controller类
+2. 创建类实现HandlerInterceptor接口，并实现接口中三个方法的任意个方法
+3. 创建配置文件
+    声明扫描器跟拦截器
+

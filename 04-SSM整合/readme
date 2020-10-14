@@ -1,0 +1,17 @@
+springMVC容器是管理controller控制器对象的，Spring容器是管理service、dao、工具类对象的。
+我们要做的是将合适的对象交给合适的容器创建和管理。
+容器内的对象可以直接互相调用，但是controller要如何调用service。
+因为springMVC容器是Spring容器的子容器，类似继承关系，所以在controller中可以直接调用service
+
+实现步骤：
+1. 加入依赖和编译插件
+    springmvc、spring、mybatis、jackson、mysql驱动、druid连接池，jsp，servlet
+2. 编写web.xml文件
+    注册Dispatcher，目的：创建springmvc容器对象跟controller对象；接收用户请求
+    注册spring监听器ContextLoaderListener，目的：创建spring容器对象，才能创建service跟dao等对象
+    注册字符集过滤器，解决post请求乱码问题
+3. 创建包（controller、service、dao、entity等）
+4. 写SSM框架的配置文件和数据库属性配置文件
+5. 创建具体类
+    dao接口和mapper文件、service和实现类、controller、实体类
+6. 编写请求类跟显示结果类
